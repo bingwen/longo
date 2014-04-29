@@ -1,0 +1,25 @@
+{
+  "name": "cute-dict",
+  "version": "0.0.1",
+  "description": "dictionary words search",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bingwen/cute-dict.git"
+  },
+  "keywords": [
+    "dictionary",
+    "words",
+    "list"
+  ],
+  "author": "bingwen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bingwen/cute-dict/issues"
+  },
+  "homepage": "https://github.com/bingwen/cute-dict",
+  "dependencies": {
+    "ejs": "^1.0.0"
+  }
+}

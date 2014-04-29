@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dict</title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
+    <style>
+	.search {margin: 50px auto 100px; float: none}
+	.search-input {width:75%; padding:0 10px; border: 2px solid #3eaf0e; box-shadow: 0 2px 1px #f0f0f0; height: 34px; outline: 0; font-size: 16px; line-height: 22px; vertical-align: top;}
+	.search-btn {width:80px;border-radius: none;}
+    </style>
+</head>
+<body>
+<form class="search col-md-6 col-xs-10" method="GET">
+  <input class="search-input" type="text" name="q"/>
+  <input class="search-btn btn btn-success" type="submit" value="Search"></input>
+</form>
+<% if (words.length) { %>
+  <table class="table">
+    <% words.forEach(function(word){ %>
+      <tr>
+	<td><%= word %><td>
+	<td><%= word %><td>
+      </tr>
+    <% }) %>
+  </table>
+<% } %>
+</body>
+</html>
