@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
       var q = args['q'];
       for(var x in ws){if(ws[x].indexOf(q)>=0){words.push(ws[x]);}}
     }
-    res.write(ejs.render(tmpl, {words:words}))
+    res.write(ejs.render(tmpl, {words:words,q:q}))
     res.end();
 }).listen(9002);
 

@@ -5,25 +5,47 @@
     <title>Dict</title>
     <link rel="stylesheet" type="text/css" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
     <style>
+	body{background: #f7f7f7;}
+	.logo{margin: 50px auto; width: 200px;}
+	.labs{color: #3eaf0e; font-size: 42px;}
+	.cuteio{font-size: 36px;}
 	.search {margin: 50px auto 100px; float: none}
 	.search-input {width:75%; padding:0 10px; border: 2px solid #3eaf0e; box-shadow: 0 2px 1px #f0f0f0; height: 34px; outline: 0; font-size: 16px; line-height: 22px; vertical-align: top;}
-	.search-btn {width:80px;border-radius: none;}
+	.search-btn, .search-btn:active, .search-btn:hover {width:120px; border-radius: none;}
+	.result {margin: 0 auto; float: none}
+	.keywords{color: #3eaf0e;font-weight: bold;}
+	table td a {margin-right: 50px;}
+	.no-result{color: #3eaf0e; font-size: 42px;margin: 50px auto 100px; float: none;width: 300px;}
     </style>
 </head>
 <body>
+<div class="logo"><span class="labs">Labs.</span><span class="cuteio">cute.io</span></div>
 <form class="search col-md-6 col-xs-10" method="GET">
-  <input class="search-input" type="text" name="q"/>
-  <input class="search-btn btn btn-success" type="submit" value="Search"></input>
+  <input class="search-input" type="text" name="q" value="<%= q %>"/>
+  <input class="search-btn btn btn-success" type="submit" value="Search Words"></input>
 </form>
 <% if (words.length) { %>
-  <table class="table">
+<div class="col-md-8 col-xs-10 result">
+  <table class="table table-striped table-hover">
+    <tr><th>word</th><th>links</th></tr>
     <% words.forEach(function(word){ %>
       <tr>
-	<td><%= word %><td>
-	<td><%= word %><td>
+	<td><%- word.replace(q,'<span class="keywords">'+q+'</span>') %></td>
+	<td>
+	  <a target="_blank" href="http://wikipedia.org/wiki/<%= word %>">Wikipedia</a>
+	  <a target="_blank" href="http://www.bing.com/dict/search?q=<%= word %>">Bing Dictionary</a>
+	  <a target="_blank" href="http://dict.baidu.com/s?wd=<%= word %>">百度词典</a>
+	  <a target="_blank" href="http://dict.youdao.com/search?q=<%= word %>">有道词典</a>
+	  <a target="_blank" href="http://www.iciba.com/<%= word %>">爱词霸</a>
+	</td>
       </tr>
     <% }) %>
   </table>
+</div>
+<% }else{ %>
+<div class="col-md-8 col-xs-10 no-result">
+not found !
+</div>
 <% } %>
 </body>
 </html>
